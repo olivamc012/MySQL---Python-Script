@@ -1,0 +1,20 @@
+#!/usr/bin/python
+import pprint
+
+print "Using MySQLdb…"
+import MySQLdb
+myConnection = MySQLdb.connect( host = "testinstance.cuprnqmjai1h.us-east-2.rds.amazonaws.com", user = "testuser", passwd = "*****", db = "masterdb" )
+
+cursor = myConnection.cursor()
+
+#execute select statement
+cursor.execute("SELECT * FROM file_names")
+
+
+#get and display one row at a time
+data = cursor.fetchall()
+for row in data:
+    pprint.pprint(row)
+
+#close the connection
+myConnection.close()
