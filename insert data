@@ -1,0 +1,25 @@
+#import connector
+print "Using MySQLdb…"
+import MySQLdb
+#createconnection
+myConnection = MySQLdb.connect( host = "testinstance.cuprnqmjai1h.us-east-2.rds.amazonaws.com", user = "testuser", passwd = "******", db = "masterdb" )
+
+#create cursor
+cursor = myConnection.cursor()
+
+#create table
+#cursor.execute("create table stud(id int, name varchar(20))")
+
+#print("table printed successfully")
+
+#insert record into stud table
+cursor.execute("insert into file_names(first_name, last_name, email) values('Matt', 'Oliva', 'olivamc012@gmail.com')")
+#data = cursor.fetchone() not important
+
+print('one row inserted')
+print(cursor.rowcount)
+
+#commit
+myConnection.commit()
+cursor.close()
+myConnection.close()
