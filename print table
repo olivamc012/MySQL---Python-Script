@@ -1,9 +1,10 @@
-#!/usr/bin/python
-import pprint
-
 print "Using MySQLdb…"
 import MySQLdb
-myConnection = MySQLdb.connect( host = "testinstance.cuprnqmjai1h.us-east-2.rds.amazonaws.com", user = "testuser", passwd = "*****", db = "masterdb" )
+
+myConnection = MySQLdb.connect( host = "testinstance.cuprnqmjai1h.us-east-2.rds.amazonaws.com",
+                                user = "testuser",
+                                passwd = "*****",
+                                db = "masterdb")
 
 cursor = myConnection.cursor()
 
