@@ -1,0 +1,24 @@
+print "Using MySQLdb…"
+import MySQLdb
+import MySQLdb.cursors
+
+myConnection = MySQLdb.connect( host = "testinstance.cuprnqmjai1h.us-east-2.rds.amazonaws.com",
+                                user = "testuser",
+                                passwd = "*****",
+                                db = "masterdb")
+
+cursor = myConnection.cursor(MySQLdb.cursors.DictCursor)
+
+query = ("SELECT id, first_name, last_name, email FROM customer_info")
+
+#execute SQL select statement
+cursor.execute(query)
+
+#iterate over the table and print out data
+for dic in cursor:
+    for k,v in dic.items():
+        for key in v:
+            print("{}".format(str(v[key]))
+
+cursor.close()
+myConnection.close()
