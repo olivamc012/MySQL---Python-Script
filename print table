@@ -7,14 +7,14 @@ myConnection = MySQLdb.connect( host = "testinstance.cuprnqmjai1h.us-east-2.rds.
 
 cursor = myConnection.cursor()
 
-#execute select statement
-cursor.execute("SELECT * FROM file_names")
+query = ("SELECT id, first_name, last_name, email FROM customer_info")
 
+#execute SQL select statement
+cursor.execute(query)
 
-#get and display one row at a time
-data = cursor.fetchall()
-for row in data:
-    pprint.pprint(row)
+#iterate over the table and print out data
+for (id, first_name, last_name, email) in cursor:
+    print("{}, {}, {}, {}".format(id, first_name, last_name, email))
 
-#close the connection
+cursor.close()
 myConnection.close()
