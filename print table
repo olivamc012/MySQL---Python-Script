@@ -7,7 +7,6 @@ myConnection = MySQLdb.connect( host = "testinstance.cuprnqmjai1h.us-east-2.rds.
                                 db = "masterdb")
 
 cursor = myConnection.cursor()
-
 query = ("SELECT id, first_name, last_name, email FROM customer_info")
 
 #execute SQL select statement
