@@ -25,7 +25,6 @@ add_customer = ("insert into customer_info "
 #execute the fucntion
 cursor.execute(add_customer, data_customer)
 
-
 print('one row inserted')
 print(cursor.rowcount)
 
